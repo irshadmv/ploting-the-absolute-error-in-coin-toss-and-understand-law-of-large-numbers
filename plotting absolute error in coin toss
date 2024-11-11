@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+
+n=[100,500,1000,5000,50000]
+p=[]
+
+for i in range(0,len(n)):
+  head=0
+  for j in range(0,n[i]):
+    coin=random.randint(0,1)
+    if coin==1:
+      head=head+1
+  p.append(np.absolute(0.5-head/n[i]))
+
+plt.stem(n,p)
+plt.title('absolute error vs number of tosses')
+plt.xlabel('N')
+plt.ylabel('absolute error')
+plt.show()  
